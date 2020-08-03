@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdy.mapper.BlogMapper">
+
+    <select id="selectAll" resultType="blog">
+        select * from blog;
+    </select>
+
+    <select id="selectOneById" parameterType="int" resultType="blog">
+        select * from blog where id = #{id};
+    </select>
+
+    <select id="selectByCid" parameterType="int" resultType="Blog">
+        select * from blog where category_id = #{cid};
+    </select>
+
+    <select id="selectByTime" resultType="blog">
+        select * from blog order by create_time desc;
+    </select>
+
+    <update id="update" parameterType="blog">
+        update blog set title=#{title},category_id=#{categoryId},content=#{content},update_time=#{updateTime}
+        where id = #{id};
+    </update>
+
+    <insert id="insert" parameterType="blog">
+        insert into blog(title,category_id,content,create_time,update_time)
+         values(#{title},#{categoryId},#{content},#{createTime},#{updateTime});
+    </insert>
+
+    <delete id="deleteById" parameterType="int">
+        delete from blog where id = #{id};
+    </delete>
+</mapper>

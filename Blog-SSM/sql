@@ -1,0 +1,75 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : localhost_3306
+Source Server Version : 50549
+Source Host           : localhost:3306
+Source Database       : blog
+
+Target Server Type    : MYSQL
+Target Server Version : 50549
+File Encoding         : 65001
+
+Date: 2020-06-03 23:33:30
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `blog`
+-- ----------------------------
+DROP TABLE IF EXISTS `blog`;
+CREATE TABLE `blog` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL,
+  `category_id` int(10) NOT NULL,
+  `content` text NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_time` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of blog
+-- ----------------------------
+INSERT INTO `blog` VALUES ('1', 'java特点', '1', '## 一次编译处处运行，是java的特点\n*我草*', '2020-05-02 15:42:20', '2020-05-10 16:21:07');
+INSERT INTO `blog` VALUES ('2', '博客系统-第一天', '3', '<p>今天是2020-5-2号，今天是开发博客系统的第三天。</p>', '2020-05-02 18:56:38', '2020-05-10 22:49:01');
+INSERT INTO `blog` VALUES ('4', '测试', '2', '这是测试图片上传', '2020-05-02 19:02:40', '2020-05-10 22:48:55');
+INSERT INTO `blog` VALUES ('6', '个人博客开发第10天', '7', '## 今天是开发我的个人博客的第十天\n这个第十天其实是项目从开始到现在有10天 ，但是我开发的时间并没有10天', '2020-05-10 18:20:45', '2020-05-10 22:48:24');
+INSERT INTO `blog` VALUES ('7', '个人博客第11天', '3', '# SpringMVC的跳转问题\n今天在进行页面跳转的时候总是出现404错误，还好最后解决了。现在来总结一下。\n### 出现错误的原因\n相对路径和绝对路径没有搞清楚。所以导致自己的路径总是出错。\n', '2020-05-11 23:12:55', '2020-05-11 23:12:55');
+INSERT INTO `blog` VALUES ('8', '测试', '1', '![Java图片](/Blog/images/java.jpg)\n\n测试图片是否能够存储', '2020-05-14 11:54:37', '2020-05-14 11:55:31');
+
+-- ----------------------------
+-- Table structure for `category`
+-- ----------------------------
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE `category` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of category
+-- ----------------------------
+INSERT INTO `category` VALUES ('1', 'Java基础');
+INSERT INTO `category` VALUES ('2', 'Spring');
+INSERT INTO `category` VALUES ('3', 'SpringMVC');
+INSERT INTO `category` VALUES ('6', 'Mybatis');
+INSERT INTO `category` VALUES ('7', 'SSM整合');
+
+-- ----------------------------
+-- Table structure for `user`
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `username` varchar(60) NOT NULL,
+  `password` varchar(60) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES ('1', 'admin', '123456');

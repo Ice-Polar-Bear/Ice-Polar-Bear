@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdy.mapper.CategoryMapper">
+    <insert id="insert" parameterType="String">
+        insert into category(category_name) values(#{name});
+    </insert>
+
+    <select id="select" resultType="category">
+        select * from category;
+    </select>
+
+    <select id="selectOneByName" resultType="category" parameterType="String">
+        select * from category where category_name = #{name};
+    </select>
+
+    <select id="selectOneById" parameterType="int" resultType="category">
+        select * from category where id = #{id};
+    </select>
+
+    <delete id="deleteOne" parameterType="int">
+        delete from category where id = #{id};
+    </delete>
+
+    <update id="updateCategory" parameterType="category">
+        update category set category_name = #{categoryName} where id = #{id};
+    </update>
+</mapper>
